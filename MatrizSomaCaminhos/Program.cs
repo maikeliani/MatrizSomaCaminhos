@@ -4,11 +4,11 @@
     {
         int[,] mat = new int[5, 5];
 
-        PreencheMatriz(mat, 2, 2);
-        ImprimeMatriz(mat, 2, 2);
-        SomaValoresColuna(mat, 2, 2);
-        SomaValoresLInha(mat, 2, 2);
-        SomaValoresDiagonais(mat, 2, 2);    
+        PreencheMatriz(mat, 5, 5);
+        ImprimeMatriz(mat, 5, 5);
+        SomaValoresColuna(mat, 5, 5);
+        SomaValoresLInha(mat, 5, 5);
+        SomaValoresDiagonais(mat, 5, 5);
 
 
         void PreencheMatriz(int[,] aux, int lin, int col)
@@ -46,8 +46,8 @@
 
         }
 
-        
-        
+
+
 
         void SomaValoresColuna(int[,] aux, int lin, int col)
         {
@@ -56,22 +56,22 @@
             for (int coluna = 0; coluna < col; coluna++)
             {
                 int vertical = 0;
-                
-                Console.Write("A soma do caminho da coluna {0} é: ",coluna);
+
+                Console.Write("A soma do caminho da coluna {0} é: ", coluna);
 
                 for (int linha = 0; linha < lin; linha++)
                 {
 
                     vertical += aux[linha, contador];
 
-                    
+
                 }
                 Console.Write(vertical + "\n");
-                if(contador < lin)
+                if (contador < lin)
                 {
                     contador++;
                 }
-                
+
             }
 
         }
@@ -107,26 +107,26 @@
 
             int somaDiagonal1 = 0;
             int somaDiagonal2 = 0;
-            int contador1 = lin-1;
+            int contador1 = lin - 1;
             int contador2 = 0;
 
             for (int linha = 0; linha < lin; linha++)
             {
-              
+
                 for (int coluna = 0; coluna < col; coluna++)
                 {
-                    if(linha == coluna)
+                    if (linha == coluna)
                     {
                         somaDiagonal1 += aux[linha, coluna];
                     }
 
-                         if( (contador1 >= 0) && (contador2 < col) )              
+                    if ((contador1 >= 0) && (contador2 < col))
                         somaDiagonal2 += aux[contador1, contador2];
-                        contador1--;
-                        contador2++;
-                    
+                    contador1--;
+                    contador2++;
+
                 }
-  
+
             }
             Console.Write(" A soma da diagonal 1 é: " + somaDiagonal1 + "\n");
             Console.Write(" \nA soma da diagonal 2 é: " + somaDiagonal2 + "\n");
