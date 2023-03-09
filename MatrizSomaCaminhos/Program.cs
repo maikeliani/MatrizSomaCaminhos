@@ -107,8 +107,8 @@
 
             int somaDiagonal1 = 0;
             int somaDiagonal2 = 0;
-            int contador1 = lin - 1;
-            int contador2 = 0;
+            int contadorLinha = 0;
+            int contadorColuna = col - 1;
 
             for (int linha = 0; linha < lin; linha++)
             {
@@ -120,10 +120,12 @@
                         somaDiagonal1 += aux[linha, coluna];
                     }
 
-                    if ((contador1 >= 0) && (contador2 < col))
-                        somaDiagonal2 += aux[contador1, contador2];
-                    contador1--;
-                    contador2++;
+                    if ((coluna == contadorColuna) && (linha == contadorLinha))
+                    {
+                        somaDiagonal2 += aux[contadorLinha, contadorColuna];
+                        contadorLinha++;
+                        contadorColuna--;
+                    }
 
                 }
 
@@ -132,5 +134,7 @@
             Console.Write(" \nA soma da diagonal 2 é: " + somaDiagonal2 + "\n");
 
         }
+
+
     }
 }
